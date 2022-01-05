@@ -14,7 +14,7 @@ class RestaurantTest {
     Restaurant restaurant;
     //REFACTOR ALL THE REPEATED LINES OF CODE
     private void createMockRestaurant() {
-        LocalTime openingTime = LocalTime.parse("10:30:00");
+        LocalTime openingTime = LocalTime.parse("11:30:00");
         LocalTime closingTime = LocalTime.parse("11:00:00");
         restaurant = service.addRestaurant("backery", "odisha", openingTime, closingTime);
         restaurant.addToMenu("rice",100);
@@ -39,7 +39,7 @@ class RestaurantTest {
     public void is_restaurant_open_should_return_false_if_time_is_outside_opening_and_closing_time(){
         //WRITE UNIT TEST CASE HERE
         createMockRestaurant();
-        LocalTime testTimeforRestauarant_open = LocalTime.parse("22:30:00");
+        LocalTime testTimeforRestauarant_open = LocalTime.parse("11:30:00");
         Restaurant spiedRestaurant = Mockito.spy(restaurant) ;
         Mockito.when(spiedRestaurant.getCurrentTime()).thenReturn(testTimeforRestauarant_open) ;
         assertFalse(spiedRestaurant.isRestaurantOpen());
@@ -84,7 +84,7 @@ class RestaurantTest {
             createMockRestaurant();
             List<String> selectedItemNames = Arrays.asList("rice", "cake" ) ;
             totalCost = restaurant.getTotalCost(selectedItemNames) ;
-            assertEquals(388, totalCost);
+            assertEquals(400, totalCost);
     }
 	
 	//<<<<<<<<<<<<<<<<<<<<<<<GetCost>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
