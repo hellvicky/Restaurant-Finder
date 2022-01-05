@@ -1,0 +1,21 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+package com.RestaurantFinder;
+
+import java.time.LocalTime;
+
+public class Main {
+    public Main() {
+    }
+
+    public static void main(String[] args) {
+        LocalTime openingTime = LocalTime.parse("08:00:00");
+        LocalTime closingTime = LocalTime.parse("12:00:00");
+        Restaurant restaurant = new Restaurant("backery", "odisha", openingTime, closingTime);
+        restaurant.addToMenu("biriyani", 134);
+        restaurant.addToMenu("cake", 300);
+    }
+}
